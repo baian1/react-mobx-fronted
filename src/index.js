@@ -7,7 +7,10 @@ import {RoleStore} from './stores/Roles';
 import {App} from './route'
 
 
+
 const rolestore = new RoleStore();
+console.log(rolestore.roles);
+
 
 const stroe={
   rolestore,
