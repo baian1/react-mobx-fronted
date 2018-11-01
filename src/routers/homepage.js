@@ -1,14 +1,14 @@
 import React from 'react'
 import Header from '../components/Header'
-import RolesTable from '../components/roles/RolesTable'
+import Homepage from '../components/home/homepage'
 
-const Roles = ()=>{
+const Home = ()=>{
   return(
     <div>
       <Header/>
-      <RolesTable/>
+      <Homepage/>
     </div>
   )
 }
 
-export default Roles;
+export default Home;
