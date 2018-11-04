@@ -3,7 +3,7 @@ import axios from 'axios';
 var request=axios.create();
 
 //设置默认地址
-//request.defaults.baseURL='http://localhost:3000';
+request.defaults.baseURL='http://localhost:3000';
 
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
