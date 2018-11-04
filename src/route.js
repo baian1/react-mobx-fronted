@@ -7,8 +7,10 @@ export const App=()=>{
   return (
     <BrowserRouter>
       <div>
-        <Route path='/' exact component={Home}/>
-        <Route path='/roles' exact component={Roles}/>
+        <Switch>
+          <Route path='/' exact component={Home}/>
+          <Route path='/roles' component={Roles}/>
+        </Switch>
       </div>
     </BrowserRouter>
   )

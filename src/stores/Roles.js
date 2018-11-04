@@ -1,67 +1,32 @@
-import {observable,action,autorun} from 'mobx';
-import axios from 'axios';
+import {observable,action} from 'mobx';
+import {loadRoles,creatRoles,deleteRoles,updateRoles} from '../apis/roles'
 
 export class RoleStore {
 
-  @observable roles=[];
-  @observable Loading=true;
+  @observable roles = [];
+  @observable Loading = true;
 
-  constructor(){
+  constructor() {
     this.loadRoles();
   }
 
   @action
-  loadRoles(){
-    axios
-      .get('/api/roles')
-      .then((response)=>{
-        console.log(response.data);
-        this.roles=response.data;
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
+  async loadRoles() {
+    this.roles = await loadRoles();
   }
 
-  creatRoles(value){
-    axios
-      .post('/api/roles',{
-        name:value.name,
-        display_name:value.display_name,
-        description:value.description,
-      })
-      .then((response)=>{
-        console.log(response);
-        this.loadRoles();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  async creatRoles(value) {
+    await creatRoles(value);
+    this.loadRoles();
   }
 
-  deleteRoles(id){
-    axios.delete(`/api/roles/${id}`)
-      .then((response)=>{
-        console.log(response);
-        this.loadRoles();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  async deleteRoles(id) {
+    await deleteRoles(id);
+    this.loadRoles();
   }
 
-  updateRoles(id,value){
-    axios.patch(`/api/roles/${id}`,{
-      name:value.name,
-      display_name:value.display_name,
-      description:value.description,
-    })
-      .then((response)=>{
-        console.log(response);
-        this.loadRoles();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  async updateRoles(id, value) {
+    await updateRoles(id, value);
+    this.loadRoles();
   }
 }
