@@ -1,5 +1,4 @@
 import request from '../utils/request'
-import axios from "axios";
 
 export async function loadRoles() {
   try {
@@ -13,13 +12,13 @@ export async function loadRoles() {
   }
 }
 
-export async function creatRoles(value){
+export async function createRole(roleObj){
   try {
     const result = await request.post('/api/roles',{
-      name:value.name,
-      display_name:value.display_name,
-      description:value.description,
-    })
+      name:roleObj.name,
+      display_name:roleObj.display_name,
+      description:roleObj.description,
+    });
     if (result.status===200){
       console.log('success');
     }
@@ -39,12 +38,12 @@ export async function deleteRoles(id) {
   }
 }
 
-export async function updateRoles(id,value) {
+export async function updateRole(id,roleObj) {
   try {
     const result = await request.patch(`/api/roles/${id}`,{
-      name:value.name,
-      display_name:value.display_name,
-      description:value.description,
+      name:roleObj.name,
+      display_name:roleObj.display_name,
+      description:roleObj.description,
     });
     if (result.status===200){
       console.log('success');

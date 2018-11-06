@@ -2,13 +2,13 @@ import { Modal, Button,Form,Input } from 'antd';
 import React from 'react';
 
 class RolesModal extends React.Component {
-  state = { visible: false }
+  state = { visible: false };
 
   showModal = () => {
     this.setState({
       visible: true,
     });
-  }
+  };
 
   handleOk = (e) => {
     e.preventDefault();
@@ -21,24 +21,24 @@ class RolesModal extends React.Component {
         });
       }
     });
-  }
+  };
 
   handleCancel = (e) => {
     console.log(e);
     this.setState({
       visible: false,
     });
-  }
+  };
 
   render() {
-    const {getFieldDecorator}=this.props.form;
-    const button = this.props.modaltype === 'creat' ? <Button type="primary">{this.props.text}</Button> : <a>{this.props.text}</a>;
-
-    const {name,display_name,description}=this.props.record;
+    const {getFieldDecorator} = this.props.form;
+    const button = this.props.modalType === 'create' ? <Button type="primary">Create Role</Button> : <a>edit</a>;
+    const record=this.props.record || {};
+    const {name,display_name,description}=record;
     const formItemLayout = {
       labelCol: {
-        xs: { span: 24 },
-        sm: { span: 7 },
+        xs: {span: 24},
+        sm: {span: 7},
       },
       wrapperCol: {
         xs: { span: 24 },

@@ -1,20 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'mobx-react'
-import {RoleStore} from './stores/Roles';
 import {App} from './route'
-
-
-
-const rolestore = new RoleStore();
-console.log(rolestore.roles);
-
-
-const stroe={
-  rolestore,
-};
+import {stroe} from './stores'
 
 ReactDOM.render(<Provider {...stroe}>
   <App/>

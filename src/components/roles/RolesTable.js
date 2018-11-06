@@ -2,9 +2,10 @@ import React from 'react';
 import {Table, Divider, Popconfirm} from 'antd';
 import {inject,observer} from 'mobx-react'
 import RolesModal from './RolesModal'
+import './RolesTable.scss'
 
 
-const RolesTable=inject('rolestore')(observer(({rolestore})=>{
+const RolesTable=inject('roleStore')(observer(({roleStore})=>{
 
   const columns = [
     {
@@ -28,10 +29,10 @@ const RolesTable=inject('rolestore')(observer(({rolestore})=>{
       key: 'action',
       render: (text, record) => (
         <span>
-          <RolesModal onClick={rolestore.updateRoles.bind(rolestore,record.id)} record={record} text='Edit' modaltype='edit'/>
+          <RolesModal onClick={roleStore.updateRole.bind(roleStore,record.id)} record={record} modalType='edit'/>
           <Divider type="vertical" />
           <Popconfirm title="Confirm to delete?" onConfirm={()=>{
-            rolestore.deleteRoles(record.id);
+            roleStore.deleteRoles(record.id);
           }}>
             <a>Delete</a>
           </Popconfirm>
@@ -40,11 +41,11 @@ const RolesTable=inject('rolestore')(observer(({rolestore})=>{
     }];
 
   return(
-    <div>
-      <RolesModal onClick={rolestore.creatRoles.bind(rolestore)} record={{}} text='Creat Role' modaltype='creat'/>
+    <div className='container'>
+      <RolesModal onClick={roleStore.createRole.bind(roleStore)} modalType='create'/>
       <Table
         columns={columns}
-        dataSource={rolestore.roles}
+        dataSource={roleStore.roles}
         rowKey={record => record.id}
       />
     </div>

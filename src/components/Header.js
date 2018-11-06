@@ -1,13 +1,14 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
 import {Link} from 'react-router-dom';
-
+import './Header.scss'
 
 const Header=()=> {
   return (
     <Menu
       mode="horizontal"
       theme="dark"
+      className="header"
     >
       <Menu.Item key="/users">
         <Link to="/users"><Icon type="bars" />Users</Link>
@@ -26,6 +27,6 @@ const Header=()=> {
       </Menu.Item>
     </Menu>
   );
-}
+};
 
 export default Header;

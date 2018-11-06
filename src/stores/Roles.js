@@ -1,5 +1,5 @@
 import {observable,action} from 'mobx';
-import {loadRoles,creatRoles,deleteRoles,updateRoles} from '../apis/roles'
+import {loadRoles,createRole,deleteRoles,updateRole} from '../apis/roles'
 
 export class RoleStore {
 
@@ -15,8 +15,8 @@ export class RoleStore {
     this.roles = await loadRoles();
   }
 
-  async creatRoles(value) {
-    await creatRoles(value);
+  async createRole(value) {
+    await createRole(value);
     this.loadRoles();
   }
 
@@ -25,8 +25,8 @@ export class RoleStore {
     this.loadRoles();
   }
 
-  async updateRoles(id, value) {
-    await updateRoles(id, value);
+  async updateRole(id, value) {
+    await updateRole(id, value);
     this.loadRoles();
   }
 }
