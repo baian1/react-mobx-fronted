@@ -2,7 +2,7 @@ import { Modal, Button,Form,Input } from 'antd';
 import React from 'react';
 
 class RolesModal extends React.Component {
-  state = { visible: false };
+  state = {visible: false};
 
   showModal = () => {
     this.setState({
@@ -33,16 +33,16 @@ class RolesModal extends React.Component {
   render() {
     const {getFieldDecorator} = this.props.form;
     const button = this.props.modalType === 'create' ? <Button type="primary">Create Role</Button> : <a>edit</a>;
-    const record=this.props.record || {};
-    const {name,display_name,description}=record;
+    const record = this.props.record || {};
+    const {name, display_name, description} = record;
     const formItemLayout = {
       labelCol: {
         xs: {span: 24},
         sm: {span: 7},
       },
       wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 14 },
+        xs: {span: 24},
+        sm: {span: 14},
       },
     };
     return (

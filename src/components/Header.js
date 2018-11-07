@@ -3,7 +3,7 @@ import { Menu, Icon } from 'antd';
 import {Link} from 'react-router-dom';
 import './Header.scss'
 
-const Header=()=> {
+const Header = () => {
   return (
     <Menu
       mode="horizontal"

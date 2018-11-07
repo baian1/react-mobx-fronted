@@ -3,7 +3,7 @@ import {BrowserRouter, Route,Switch} from "react-router-dom";
 import Roles from './routers/Roles'
 import Home from './routers/homepage'
 
-export const App=()=>{
+export const App = () => {
   return (
     <BrowserRouter>
       <div>
@@ -13,5 +13,5 @@ export const App=()=>{
         </Switch>
       </div>
     </BrowserRouter>
-  )
-}
+  );
+};
